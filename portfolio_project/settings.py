@@ -129,3 +129,14 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # The URL that will handle serving media files (e.g., http://127.0.0.1:8000/media/...)
 MEDIA_URL = '/media/'
+
+
+
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'   # Use your provider's SMTP host (e.g., smtp.sendgrid.net)
+EMAIL_PORT = 587                # Standard port for TLS/STARTTLS
+EMAIL_USE_TLS = True            # Use TLS encryption
+EMAIL_HOST_USER = 'ebaafi007@gmail.com'       # The email address Django will log in with
+EMAIL_HOST_PASSWORD = 'myPortfolio@123'      # Use an App Password if using Gmail/security features
+DEFAULT_FROM_EMAIL = 'ebaafi007@gmail.com'    # The "From" email address
