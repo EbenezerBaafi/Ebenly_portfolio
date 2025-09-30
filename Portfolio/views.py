@@ -10,8 +10,8 @@ def project_index(request):
 
 def project_detail(request, pk):
     # Fetch the project by primary key
-    project = Portfolio.objects.get(pk=pk)
+    projects = Portfolio.objects.all()
     context = {
-        'project': project
+        'projects': projects
     }
     return render(request, 'projects/detail.html', context)
