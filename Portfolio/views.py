@@ -19,7 +19,7 @@ def project_detail(request, pk):
     }
     return render(request, 'projects/detail.html', context)
 
-def Contact():
+def Contact(request):
     if request.method == 'Post':
         # Create a form instance and populate it with data from the request:
         form = ContactForm(request.POST)
@@ -27,7 +27,7 @@ def Contact():
         # Check whether it's valid:
         if form.is_valid():
             name = form.cleaned_data['name']
-            emaail = form.cleaned_date['email']
+            email = form.cleaned_date['email']
             message = form.cleaned_data['message']
             subject = form.cleaned_data['subject']
 
@@ -36,7 +36,7 @@ def Contact():
 
         try:
             # Send email
-            send_email(
+            send_mail(
                 full_subject,
                 full_message,
                 settings.DEFAULT_FROM_EMAIL,
@@ -57,3 +57,7 @@ def Contact():
             'form': form
         }
         return render(request, 'projects/contact.html', context)
+    
+
+def contact_success(request):
+    return render(request, 'projects/contact_success.html')

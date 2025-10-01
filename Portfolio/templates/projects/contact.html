@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Me</title>
+</head>
+<body>
+    <h1>Get In Touch</h1>
+    
+    <form method="post">
+        {% csrf_token %} 
+        
+        {{ form.as_p }}
+        
+        <button type="submit">Send Message</button>
+    </form>
+    
+    <p><a href="{% url 'project_index' %}">Back to Projects</a></p>
+
+</body>
+</html>

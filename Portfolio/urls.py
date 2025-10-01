@@ -2,8 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # When the user visits the root of the 'projects' app (e.g., /projects/)
-    # call the view function named 'project_index'
-    path('', views.project_index, name='project_index'),
-    path('<int:pk>/', views.project_detail, name='project_detail'),
+    path('', views.project_index, name='project_index'),  # Empty string for root URL
+    path('project/<int:pk>/', views.project_detail, name='project_detail'),
+    path('contact/', views.Contact, name='contact'),
+    path('contact/success/', views.contact_success, name='contact_success'),
 ]
