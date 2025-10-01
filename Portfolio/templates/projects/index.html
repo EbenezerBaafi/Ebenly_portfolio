@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Portfolio Projects</title>
-    </head>
-<body>
-    <h1>My Portfolio</h1>
+{% extends 'base.html' %} 
+
+{% block title %}All My Projects{% endblock %}
+
+{% block content %}
+    <h1>My Portfolio Projects</h1>
     
     {% for project in projects %}
         <div>
@@ -24,6 +22,4 @@
             <hr>
         </div>
     {% endfor %}
-
-</body>
-</html>
+{% endblock %}

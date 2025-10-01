@@ -4,6 +4,9 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .forms import ContactForm
 
+def home (request):
+    return render(request, 'projects/home.html')
+
 def project_index(request):
     projects = Portfolio.objects.all()
     context = {
