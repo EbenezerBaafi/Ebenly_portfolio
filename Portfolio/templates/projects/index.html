@@ -1,25 +1,19 @@
-{% extends 'base.html' %} 
+{% extends 'home.html' %}
 
 {% block title %}All My Projects{% endblock %}
 
 {% block content %}
+    
+    <div class="profile-section">
+        <img src="{% static 'img/profile.jpg' %}" alt="My Professional Photo" class="profile-photo">
+        
+        <h2>Hi, I'm EBenezer Baafi!</h2>
+        <p>
+            I'm a Backend  developer focused on building robust, scalable web applications. 
+            Welcome to my portfolio where you can see my latest work in [Python, C#, Java etc.].
+        </p>
+        <hr>
+    </div>
     <h1>My Portfolio Projects</h1>
     
     {% for project in projects %}
-        <div>
-            <h2><a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a></h2>
-            
-            {% if project.image %}
-                <img src="{{ project.image.url }}" alt="{{ project.title }}" style="max-width: 300px; height: auto;">
-            {% endif %}
-            
-            <p>{{ project.description }}</p>
-            
-            {% if project.link %}
-                <a href="{{ project.link }}" target="_blank">View Project</a>
-            {% endif %}
-            
-            <hr>
-        </div>
-    {% endfor %}
-{% endblock %}
