@@ -37,5 +37,6 @@ def contact(request):
             return render(request, 'home.html')
         ins = models.Contact(name=name,email=email,number=number,content=content)
         ins.save()
-
-
+        messages.success(request, 'Thank you for contacting me!')
+        print('Data has been saved')
+    return render(request, 'home.html')

@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static 
 
 urlpatterns = [
+    path('', include('Base.urls')),
     path('admin/', admin.site.urls),
     # This now maps to the root URL (/)
     path('', include('Portfolio.urls')), 
