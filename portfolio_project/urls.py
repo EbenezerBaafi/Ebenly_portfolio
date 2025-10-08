@@ -4,10 +4,10 @@ from django.conf import settings
 from django.conf.urls.static import static 
 
 urlpatterns = [
-    path('', include('Base.urls')),
     path('admin/', admin.site.urls),
+    path('', include('Base.urls')),
+
     # This now maps to the root URL (/)
-    path('', include('Portfolio.urls')), 
 ]
 
 # Ensure your media configuration is still included below

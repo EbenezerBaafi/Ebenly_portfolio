@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Portfolio',
     'Base',
 ]
 
@@ -59,7 +58,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'Portfolio/../Base/templates'),
+            os.path.join(BASE_DIR, 'Base/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
