@@ -1,4 +1,26 @@
-h1 {
-    color: white;
-    font-size: 100px;
+/* Force navbar to be horizontal - add this to your style.css */
+#navbar.navbar {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 1rem 2rem;
+}
+
+.right-nav ul.flex {
+  display: flex !important;
+  flex-direction: row !important;
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.right-nav li {
+  display: inline-block !important;
+}
+
+.right-nav a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
 }
