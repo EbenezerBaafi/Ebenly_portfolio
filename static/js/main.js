@@ -64,21 +64,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Animate progress bars on scroll
+let progressBarsAnimated = false;
+
 const animateProgressBars = () => {
     const progressBars = document.querySelectorAll('.progress-fill');
+    const skillsSection = document.querySelector('#skills');
     
-    progressBars.forEach(bar => {
-        const barPosition = bar.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
+    if (!skillsSection || progressBarsAnimated) return;
+    
+    const sectionPosition = skillsSection.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+    
+    if (sectionPosition < screenPosition) {
+        progressBarsAnimated = true; // Prevent re-animation
         
-        if (barPosition < screenPosition) {
-            const width = bar.style.width;
+        progressBars.forEach(bar => {
+            const targetWidth = bar.getAttribute('data-width') || bar.style.width;
+            bar.setAttribute('data-width', targetWidth); // Store original width
             bar.style.width = '0%';
+            
             setTimeout(() => {
-                bar.style.width = width;
-            }, 100);
-        }
-    });
+                bar.style.width = targetWidth;
+            }, 200);
+        });
+    }
 };
 
 // Animate elements on scroll
@@ -111,8 +120,11 @@ window.addEventListener('scroll', () => {
 
 // Run animations on page load
 window.addEventListener('load', () => {
-    animateProgressBars();
-    animateOnScroll();
+    // Small delay to ensure DOM is fully loaded
+    setTimeout(() => {
+        animateProgressBars();
+        animateOnScroll();
+    }, 300);
 });
 
 // Form submission handling (optional - customize based on your backend)
